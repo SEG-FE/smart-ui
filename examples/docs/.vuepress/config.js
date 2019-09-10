@@ -29,12 +29,12 @@ module.exports = {
         text: 'github',
         // 这里是下拉列表展现形式。
         items: [{
-            text: 'focus-outside',
-            link: 'https://github.com/TaoXuSheng/focus-outside'
+            text: 'smart-ui',
+            link: 'https://github.com/SEG-FE/smart-ui'
           },
           {
-            text: 'stylus-converter',
-            link: 'https://github.com/TaoXuSheng/stylus-converter'
+            text: 'hwl-fe',
+            link: 'https://github.com/hwl-fe'
           },
         ]
       }
