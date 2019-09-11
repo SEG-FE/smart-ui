@@ -1,3 +1,5 @@
+const mdContainer = require('markdown-it-container');
+
 module.exports = {
   title: 'Smart-UI', // 设置网站标题
   dest: './dist', // 设置输出目录
@@ -19,12 +21,8 @@ module.exports = {
       },
       {
         text: '组件',
-        link: '/base/'
+        link: '/base/alert'
       },
-      // {
-      //   text: 'js',
-      //   link: '/zhihu/'
-      // },
       {
         text: 'github',
         // 这里是下拉列表展现形式。
@@ -51,15 +49,13 @@ module.exports = {
     }
   },
   markdown: {
+    lineNumbers: true,
     config: md => {
-      debugger;
-      md.use(require('markdown-it-container'), 'demo', {
+      md.use(mdContainer, 'demo', {
         validate(params) {
-          debugger
           return params.trim().match(/^demo\s*(.*)$/);
         },
         render(tokens, idx) {
-          debugger
           const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
           if (tokens[idx].nesting === 1) {
             const description = m && m.length > 1 ? m[1] : '';

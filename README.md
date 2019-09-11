@@ -1,5 +1,6 @@
-# island-ui
-> 孤岛
+# smart-ui
+
+> smart-ui
 
 ## Project setup
 
@@ -29,6 +30,18 @@ npm run test
 
 ```
 npm run lint
+```
+
+###  docs for development
+
+```
+npm run docs:dev
+```
+
+###  Compiles and minifies docs for production
+
+```
+npm run docs:build
 ```
 
 ### Customize configuration
