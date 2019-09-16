@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import IslandUI from '../packages/index'
-Vue.use(IslandUI)
+import SmartUI from '../packages/index'
+Vue.use(SmartUI)
 
 Vue.config.productionTip = false
 
