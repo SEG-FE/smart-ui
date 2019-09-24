@@ -11,7 +11,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "publish": "node scripts/publish.js",
+    "publish": "npm run lib && node scripts/publish.js",
     "docs:dev": "vuepress dev examples/docs",
     "docs:build": "vuepress build examples/docs",
     "deploy": "gh-pages -d dist",

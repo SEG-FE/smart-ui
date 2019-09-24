@@ -43,7 +43,6 @@ class Publish {
 
     this.rl.on('line', (line) => {
       if (line.trim() === 'y') {
-        shell.exec('npm run lib')
         this.writePackage()
         this.rl.close()
       } else if (line.trim() === 'n') {
