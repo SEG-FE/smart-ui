@@ -19,6 +19,38 @@
 
 :::
 
+### test element-ui
+
+::: demo 测试引入 element
+
+```html
+<template>
+  <el-radio v-model="radio" label="1">备选项</el-radio>
+  <el-radio v-model="radio" label="2">备选项</el-radio>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        radio: "1"
+      };
+    }
+  };
+</script>
+```
+
+<script>
+  export default {
+    data() {
+      return {
+        radio: "1"
+      };
+    }
+  };
+</script>
+
+:::
+
 ### Attributes
 
 | 参数        | 说明                               | 类型    | 可选值                     | 默认值 |

@@ -126,7 +126,8 @@
     &.is-fixed {
       position: fixed;
       bottom: 0;
-      width: 868px;
+      width: 738px;
+      z-index: 99;
     }
 
     i {
@@ -178,11 +179,6 @@ export default {
   name: "DemoBlock",
   data() {
     return {
-      codepen: {
-        script: "",
-        html: "",
-        style: ""
-      },
       hovering: false,
       isExpanded: false,
       fixedControl: false,
@@ -266,20 +262,6 @@ export default {
           this.scrollParent.addEventListener("scroll", this.scrollHandler);
         this.scrollHandler();
       }, 200);
-    }
-  },
-
-  created() {
-    const highlight = this.$slots.highlight;
-    if (highlight && highlight[0]) {
-      let code = '';
-      let cur = highlight[0];
-      if (cur.tag === 'pre' && (cur.children && cur.children[0])) {
-        cur = cur.children[0];
-        if (cur.tag === 'code') {
-          code = cur.children[0].text;
-        }
-      }
     }
   },
 
