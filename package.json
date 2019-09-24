@@ -11,6 +11,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "publish": "node scripts/publish.js",
     "docs:dev": "vuepress dev examples/docs",
     "docs:build": "vuepress build examples/docs",
     "deploy": "gh-pages -d dist",
@@ -47,7 +48,11 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off",
+      "no-alert": 0,
+      "no-debugger": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
