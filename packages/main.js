@@ -1,5 +1,5 @@
 import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import './assets/scss/element-variables.scss'
 
 // 自动加载 global 目录下的 .vue 结尾的文件
 const componentsContext = require.context("./", true, /index\.js$/);
