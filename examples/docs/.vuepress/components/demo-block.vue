@@ -33,6 +33,16 @@
 </template>
 
 <style lang="scss">
+html,
+body,
+#app,
+.theme-container,
+main.page {
+  height: 100%;
+}
+main.page {
+  overflow: scroll;
+}
 .demo-block {
   border: solid 1px #ebebeb;
   border-radius: 3px;
@@ -255,9 +265,7 @@ export default {
         return;
       }
       setTimeout(() => {
-        this.scrollParent = document.querySelector(
-          ".page-component__scroll > .el-scrollbar__wrap"
-        );
+        this.scrollParent = document.querySelector("main.page");
         this.scrollParent &&
           this.scrollParent.addEventListener("scroll", this.scrollHandler);
         this.scrollHandler();
