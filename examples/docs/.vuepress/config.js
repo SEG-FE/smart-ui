@@ -48,6 +48,18 @@ module.exports = {
       }]
     }
   },
+  plugins: [
+    // 回到顶部
+    '@vuepress/back-to-top',
+    // NProgress
+    '@vuepress/nprogress',
+    // search
+    ['@vuepress/search', {
+      searchMaxSuggestions: 10 //设置搜索的最大结果数。
+    }],
+    // 页面滚动时自动激活侧边栏链接的插件
+    '@vuepress/active-header-links'
+  ],
   markdown: {
     // markdown-it-anchor 的选项
     anchor: {
