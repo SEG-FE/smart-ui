@@ -2,7 +2,7 @@ import Element from 'element-ui'
 import './assets/scss/element-variables.scss'
 
 // 自动加载 global 目录下的 .vue 结尾的文件
-const componentsContext = require.context("./", true, /index\.js$/);
+const componentsContext = require.context("./components", true, /index\.js$/);
 var components = []
 componentsContext.keys().forEach(component => {
   const componentConfig = componentsContext(component);
