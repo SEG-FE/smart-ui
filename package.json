@@ -7,7 +7,7 @@
   "private": false,
   "license": "MIT",
   "scripts": {
-    "lib": "vue-cli-service build --target lib --name smart-ui --dest lib packages/main.js",
+    "lib": "vue-cli-service build --target lib --name smart-ui --dest lib packages/index.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -22,6 +22,7 @@
     "countup": "^1.8.2",
     "element-ui": "^2.12.0",
     "fs": "^0.0.1-security",
+    "lint-staged": "^9.3.0",
     "markdown-it-container": "^2.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.0",
@@ -30,11 +31,14 @@
     "vue-markdown-loader": "^2.4.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "@vuepress/plugin-active-header-links": "^1.0.0-rc.1",
     "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
+    "@vuepress/plugin-medium-zoom": "^1.0.0-rc.1",
     "@vuepress/plugin-nprogress": "^1.0.0-rc.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
@@ -60,6 +64,16 @@
     "parserOptions": {
       "parser": "babel-eslint"
     }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -E GIT_PARAMS"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   },
   "postcss": {
     "plugins": {

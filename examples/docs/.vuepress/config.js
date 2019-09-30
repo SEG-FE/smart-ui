@@ -1,3 +1,7 @@
+const {
+  stripScript,
+  stripTemplate
+} = require('./md-demo.js');
 module.exports = {
   title: 'Smart-UI', // 设置网站标题
   dest: './dist', // 设置输出目录
@@ -23,6 +27,10 @@ module.exports = {
         link: '/base/'
       },
       {
+        text: '文档',
+        link: '/other/'
+      },
+      {
         text: 'github',
         // 这里是下拉列表展现形式。
         items: [{
@@ -45,7 +53,10 @@ module.exports = {
           'alert',
           'tab-list'
         ]
-      }]
+      }],
+      '/other/': [
+        'new'
+      ]
     }
   },
   plugins: [
@@ -58,7 +69,9 @@ module.exports = {
       searchMaxSuggestions: 10 //设置搜索的最大结果数。
     }],
     // 页面滚动时自动激活侧边栏链接的插件
-    '@vuepress/active-header-links'
+    '@vuepress/active-header-links',
+    // 图片放大
+    '@vuepress/medium-zoom'
   ],
   markdown: {
     // markdown-it-anchor 的选项
@@ -94,11 +107,11 @@ module.exports = {
             let content = tokens[idx + 1].content;
             // 3.使用自定义开发组件【DemoBlock】来包裹内容并且渲染成案例和代码示例
             return `<demo-block>
-          <template class="source" slot="source">${content}</template>
+          <template class="source" slot="source">${stripTemplate(content)}</template>
           ${descriptionHTML.html}
           <template class="highlight" slot="highlight">`;
           } else {
-            return '</template></demo-block>\n';
+            return `</template></demo-block>\n`;
           }
         }
       });

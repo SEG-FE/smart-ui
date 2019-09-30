@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import SmartUI from '../packages/main'
+import SmartUI from '../packages'
 Vue.use(SmartUI)
 
 Vue.config.productionTip = false
