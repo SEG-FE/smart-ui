@@ -223,5 +223,5 @@ npm run publish
 
 更新线上文档
 ```
-npm run docs:build
+npm run deploy:build
 ```
