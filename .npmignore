@@ -3,8 +3,10 @@ node_modules/
 examples/
 public/
 dist/
+scripts/
 
 # 忽略指定文件
 vue.config.js
 babel.config.js
+commitlint.config.js
 *.map
