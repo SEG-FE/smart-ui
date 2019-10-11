@@ -210,11 +210,18 @@ sidebar: {
 代码`push`到`master`分支
 
 打包文件并发布到npm
+
+登录
+```
+npm login
+```
+
+打包并发版
 ```
 npm run publish
 ```
 
 更新线上文档
 ```
-npm run docs:build
+npm run deploy:build
 ```
