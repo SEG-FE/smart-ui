@@ -1,6 +1,3 @@
-import Element from 'element-ui'
-import './assets/scss/element-variables.scss'
-
 // 自动加载 components 目录下的 index.js 文件
 const componentsContext = require.context("./components", true, /index\.js$/);
 var components = []
@@ -13,7 +10,6 @@ componentsContext.keys().forEach(component => {
 
 // 定义 install 方法
 const install = function (Vue) {
-  Vue.use(Element);
   if (install.installed) return
   install.installed = true
   // 遍历并注册全局组件
