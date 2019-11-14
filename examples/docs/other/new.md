@@ -1,8 +1,12 @@
 ### 新增组件流程
 
-### 一、文件结构
+[仓库地址](https://github.com/SEG-FE/smart-ui.git)
 
-https://github.com/SEG-FE/smart-ui.git
+## 文件结构
+
+:::tip
+新增组件存放在 `packages/components` 文件夹下，包括组件代码 `main.vue`，以及导出组件`index.js`
+:::
 
 ```
 |-- packages // 新增 packages 用于存放组件
@@ -14,147 +18,65 @@ https://github.com/SEG-FE/smart-ui.git
     |-- index.js // 整合所有组件并导出              全局导出
 ```
 
-### 二、编写组件
+## 编写组件
 
-> src/main.vue
+::: tip
 
-**注意：name不可省略**
+熟悉组件
 
-```html
-<template>
-  <transition name="el-alert-fade">
-    <div
-      class="el-alert"
-      :class="[typeClass, center ? 'is-center' : '', 'is-' + effect]"
-      v-show="visible"
-      role="alert"
-    >
-      <i class="el-alert__icon" :class="[ iconClass, isBigIcon ]" v-if="showIcon"></i>
-      <div class="el-alert__content">
-        <span class="el-alert__title" :class="[ isBoldTitle ]" v-if="title || $slots.title">
-          <slot name="title">{{ title }}</slot>
-        </span>
-        <p class="el-alert__description" v-if="$slots.default && !description"><slot></slot></p>
-        <p class="el-alert__description" v-if="description && !$slots.default">{{ description }}</p>
-        <i class="el-alert__closebtn" :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }" v-show="closable" @click="close()">{{closeText}}</i>
-      </div>
-    </div>
-  </transition>
-</template>
+:::
 
-<script type="text/babel">
-  const TYPE_CLASSES_MAP = {
-    'success': 'el-icon-success',
-    'warning': 'el-icon-warning',
-    'error': 'el-icon-error'
-  };
-  export default {
-    name: 'ElAlert',
+::: danger 注意
 
-    props: {
-      title: {
-        type: String,
-        default: ''
-      },
-      description: {
-        type: String,
-        default: ''
-      },
-      type: {
-        type: String,
-        default: 'info'
-      },
-      closable: {
-        type: Boolean,
-        default: true
-      },
-      closeText: {
-        type: String,
-        default: ''
-      },
-      showIcon: Boolean,
-      center: Boolean,
-      effect: {
-        type: String,
-        default: 'light',
-        validator: function(value) {
-          return ['light', 'dark'].indexOf(value) !== -1;
-        }
-      }
-    },
+组件 name 不可省略
 
-    data() {
-      return {
-        visible: true
-      };
-    },
-
-    methods: {
-      close() {
-        this.visible = false;
-        this.$emit('close');
-      }
-    },
-
-    computed: {
-      typeClass() {
-        return `el-alert--${ this.type }`;
-      },
-
-      iconClass() {
-        return TYPE_CLASSES_MAP[this.type] || 'el-icon-info';
-      },
-
-      isBigIcon() {
-        return this.description || this.$slots.default ? 'is-big' : '';
-      },
-
-      isBoldTitle() {
-        return this.description || this.$slots.default ? 'is-bold' : '';
-      }
-    }
-  };
-</script>
-
-```
-
-> index.js
-
+:::
 
 ```js
 // src/index.js
 // 导入组件，组件必须声明 name
-import Alert from './src/main'
+import Alert from "./src/main";
 
 // 为组件提供 install 安装方法，供按需引入
-Alert.install = function (Vue) {
-    Vue.component(Alert.name, Alert)
-}
+Alert.install = function(Vue) {
+  Vue.component(Alert.name, Alert);
+};
 // 默认导出组件
-export default Alert
+export default Alert;
 ```
 
-### 三、测试组件
+## 调试组件
 
-#### 方式一：vue项目
+::: tip
+
+本项目中集成了vue项目和vuepress项目，有两种方式支持调试。
+
+:::
+
+#### 在 vue 项目中运行：
 
 文件位置：example/App.vue
+
 ```
 npm run serve
 ```
 
-#### 方式二：markdown
+### 方式二：markdown
 
 文件位置：example/docs/base/xxx.md
+
 ```
 npm run docs:dev
 ```
 
-### 四、编写组件说明文档
+## 编写组件说明文档
 
-> 集成了[vuepress](https://link.juejin.im/?target=https%3A%2F%2Fv1.vuepress.vuejs.org%2Fzh%2F)作为文档编写工具,具体使用请参考官方文档
+::: tip 
+ 集成了[vuepress](https://link.juejin.im/?target=https%3A%2F%2Fv1.vuepress.vuejs.org%2Fzh%2F)作为文档编写工具，具体使用请参考官方文档
+:::
 
 ```
+文件基本结构
 docs
 ├─ README.md    //首页
 ├─ .vuepress    //vuepress文件夹
@@ -169,12 +91,13 @@ docs
 │    ├─ alert.md    // /base/alert  组件文档
 │    └─ tab-list.md
 └─ i18n
-       └─ component.json
+     └─ component.json
 ```
 
-1. base文件夹下新增md文件
-2. config.js文件，配置侧边栏显示
-```
+1. base 文件夹下新增 `.md` 文件（命名和组件名一致），
+2. 在 `.vuepress/config.js` 文件中配置侧边栏，把我们刚刚新建的文档添加进去
+
+```js
 // 为以下路由添加侧边栏
 sidebar: {
   '/base/': [{
@@ -188,40 +111,42 @@ sidebar: {
   }]
 }
 ```
-3. 编写组件文档，demo调试(去掉转义符`\`)
 
-```html
-\::: demo Alert 组件提供四种主题，由`type`属性指定，默认值为`info`。
-\```html
+3. 编写组件文档，demo 调试(去掉转义符`\`)
+
+````html
+\::: demo Alert 组件提供四种主题，由`type`属性指定，默认值为`info`。 \```html
 <template>
   <el-alert title="成功提示的文案" type="success"> </el-alert>
   <el-alert title="消息提示的文案" type="info"> </el-alert>
   <el-alert title="警告提示的文案" type="warning"> </el-alert>
   <el-alert title="错误提示的文案" type="error"> </el-alert>
-</template> 
-\``` 
-\:::
-```
+</template>
+\``` \:::
+````
 
 ![Image text](./images/demo1.png)
 
-### 四、发布
+## 发布
 
 代码`push`到`master`分支
 
-打包文件并发布到npm
+打包文件并发布到 npm
 
 登录
+
 ```
 npm login
 ```
 
 打包并发版
+
 ```
 npm run publish
 ```
 
 更新线上文档
+
 ```
 npm run deploy:build
 ```

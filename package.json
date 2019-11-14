@@ -5,14 +5,13 @@
   "description": "基于 Vue 的UI组件库",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --_ examples '*.js' packages scripts",
+    "docs:dev": "vuepress dev examples/docs",
+    "docs:build": "vuepress build examples/docs",
     "deploy": "gh-pages -d dist",
     "deploy:build": "npm run docs:build && gh-pages -d dist",
-    "docs:build": "vuepress build examples/docs",
-    "docs:dev": "vuepress dev examples/docs",
     "lib": "vue-cli-service build --target lib --name smart-ui --dest lib packages/index.js",
-    "publish": "npm run lib && node scripts/publish.js"
+    "publish": "npm run lib && node scripts/publish.js && npm run deploy:build"
   },
   "main": "lib/smart-ui.umd.min.js",
   "dependencies": {

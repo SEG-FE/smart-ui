@@ -1,6 +1,9 @@
 # smart-ui
 
-> smart-ui
+[![license](https://img.shields.io/badge/%40vue%2Fcli-%5E3.5.0-brightgreen.svg)](https://github.com/vuejs/vue-cli)
+[![license](https://img.shields.io/badge/vue-%5E2.6.6-brightgreen.svg)](https://github.com/vuejs/vue)
+
+前端项目公共组件库
 
 ## Project setup
 
@@ -17,13 +20,7 @@ npm run serve
 ### Compiles and minifies for production
 
 ```
-npm run build
-```
-
-### Run your tests
-
-```
-npm run test
+npm run lib
 ```
 
 ### Lints and fixes files
@@ -32,25 +29,13 @@ npm run test
 npm run lint
 ```
 
-### docs for development
+### 启动本地文档运行环境
 
 ```
 npm run docs:dev
 ```
 
-### Compiles and minifies docs for production
-
-```
-npm run docs:build
-```
-
-### 更新线上文档 gh-pages
-
-```
-npm run deploy:build
-```
-
-### 打包并发布到 npm
+### 发布（打包并发布到 npm、更新组件文档）
 
 ```
 npm run publish
