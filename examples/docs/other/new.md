@@ -61,7 +61,7 @@ export default Alert;
 npm run serve
 ```
 
-### 方式二：markdown
+#### 在markdown中书写：
 
 文件位置：example/docs/base/xxx.md
 

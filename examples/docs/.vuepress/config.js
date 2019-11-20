@@ -1,5 +1,4 @@
 const {
-  stripScript,
   stripTemplate
 } = require('./md-demo.js');
 module.exports = {
@@ -27,7 +26,7 @@ module.exports = {
         link: '/base/'
       },
       {
-        text: '文档',
+        text: '文档中心',
         link: '/other/'
       },
       {
