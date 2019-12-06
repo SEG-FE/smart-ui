@@ -4,9 +4,11 @@ examples/
 public/
 dist/
 scripts/
+tests/
 
 # 忽略指定文件
 vue.config.js
 babel.config.js
 commitlint.config.js
+jest.config.js
 *.map
