@@ -27,7 +27,7 @@ module.exports = {
       },
       {
         text: '文档中心',
-        link: '/other/'
+        link: '/other/new'
       },
       {
         text: 'github',
@@ -45,14 +45,12 @@ module.exports = {
     ],
     // 为以下路由添加侧边栏
     sidebar: {
-      '/base/': [{
-        title: 'Notice',
-        collapsable: false,
-        children: [
-          'alert',
-          'tab-list'
-        ]
-      }],
+      '/base/': [
+        '',
+        'alert',
+        'tab-list'
+      ]
+      ,
       '/other/': [
         'new'
       ]
