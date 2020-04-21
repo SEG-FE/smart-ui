@@ -4,7 +4,6 @@
   "private": false,
   "description": "基于 Vue 的UI组件库",
   "scripts": {
-    "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint --_ examples '*.js' packages scripts",
     "deploy": "gh-pages -d dist",
     "deploy:build": "npm run docs:build && gh-pages -d dist",
