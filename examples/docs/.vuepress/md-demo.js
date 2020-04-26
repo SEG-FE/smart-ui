@@ -19,8 +19,22 @@ function stripTemplate(content) {
   return content.replace(/<(script|style)[\s\S]+<\/\1>/g, '').trim();
 }
 
+function addDep(md, content) {
+  const RE = /^<(script|style)(?=(\s|>|$))/i
+  const contents = `<script>${stripScript(content)}</script>`
+  const contentStyle = `<style>${stripStyle(content)}</style>`
+  const hoistedTags = md.$data.hoistedTags || (md.$data.hoistedTags = [])
+  if (RE.test(contents.trim())) {
+    hoistedTags.push(contents)
+  }
+  if (RE.test(contentStyle.trim())) {
+    hoistedTags.push(contentStyle)
+  }
+}
+
 module.exports = {
   stripScript,
   stripStyle,
-  stripTemplate
+  stripTemplate,
+  addDep
 };

@@ -1,5 +1,6 @@
 const {
-  stripTemplate
+  stripTemplate,
+  addDep
 } = require('./md-demo.js');
 module.exports = {
   title: 'Smart-UI', // 设置网站标题
@@ -48,7 +49,8 @@ module.exports = {
       '/base/': [
         '',
         'alert',
-        'tab-list'
+        'tab-list',
+        'dropdown'
       ]
       ,
       '/other/': [
@@ -103,6 +105,7 @@ module.exports = {
             // 2.获取代码块内的html和js代码
             let content = tokens[idx + 1].content;
             // 3.使用自定义开发组件【DemoBlock】来包裹内容并且渲染成案例和代码示例
+            addDep(md,content)
             return `<demo-block>
           <template class="source" slot="source">${stripTemplate(content)}</template>
           ${descriptionHTML.html}
