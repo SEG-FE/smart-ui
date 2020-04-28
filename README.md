@@ -7,41 +7,23 @@
 
 前端项目公共组件库
 
-## Project setup
+## Install
 
 ```
-npm install
+npm i @seg-fe/smart-ui -S 
 ```
 
-### Compiles and minifies for production
+## Quick Start
+```js
+import Vue from 'vue'
+import smartUI from "@seg-fe/smart-ui";
 
-```
-npm run lib
-```
-
-### Lints and fixes files
-
-```
-npm run lint
+Vue.use(smartUI);
 ```
 
-### 启动本地文档运行环境
+## Browser Support
 
-```
-npm run docs:dev
-```
-
-### 发布（打包并发布到 npm、更新组件文档）
-
-```
-npm run publish
-```
-
-### 仅更新文档
-
-```
-npm run deploy:build
-```
+Modern browsers and Internet Explorer 10+.
 
 ### Customize configuration
 
