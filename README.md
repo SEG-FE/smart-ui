@@ -13,12 +13,6 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
 ### Compiles and minifies for production
 
 ```
@@ -41,6 +35,12 @@ npm run docs:dev
 
 ```
 npm run publish
+```
+
+### 仅更新文档
+
+```
+npm run deploy:build
 ```
 
 ### Customize configuration
