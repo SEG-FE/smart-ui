@@ -52,7 +52,9 @@
     "vue-markdown-loader": "^2.4.1",
     "vue-template-compiler": "^2.6.10",
     "vue-test-utils": "^1.0.0-beta.11",
-    "vuepress": "^1.0.4"
+    "vuepress": "^1.0.4",
+    "vuepress-plugin-auto-sidebar": "^1.4.1",
+    "vuepress-plugin-demo-block": "^0.7.2"
   },
   "postcss": {
     "plugins": {

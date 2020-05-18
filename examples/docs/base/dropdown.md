@@ -19,10 +19,8 @@ export default {
     }
   }
 }
-
-
 </script>
-<style>
+<style lang="scss" scoped>
 body{
   background: red !important;
 }
@@ -55,7 +53,4 @@ export default {
 </script>
 
 ```
-<style>
-
-</style>
 :::
