@@ -10,45 +10,17 @@
 
 ```html
 <template>
-  <el-alert title="成功提示的文案" type="success"> </el-alert>
-  <el-alert title="消息提示的文案" type="info"> </el-alert>
-  <el-alert title="警告提示的文案" type="warning"> </el-alert>
-  <el-alert title="错误提示的文案" type="error"> </el-alert>
-</template>
-```
-
-:::
-
-### test element-ui
-
-::: demo 测试引入 element
-
-```html
-<template>
-  <el-radio v-model="radio" label="1">备选项</el-radio>
-  <el-radio v-model="radio" label="2">备选项</el-radio>
+  <div>demo</div>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        radio: "1"
-      };
+export default {
+  data(){
+    return {
     }
-  };
+  }
+}
 </script>
 ```
-
-<script>
-  export default {
-    data() {
-      return {
-        radio: "1"
-      };
-    }
-  };
-</script>
-
 :::
 
 ### Attributes

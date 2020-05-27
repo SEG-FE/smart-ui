@@ -1,5 +1,6 @@
 const {
-  stripTemplate
+  stripTemplate,
+  addDep
 } = require('./md-demo.js');
 module.exports = {
   title: 'Smart-UI', // 设置网站标题
@@ -27,7 +28,7 @@ module.exports = {
       },
       {
         text: '文档中心',
-        link: '/other/new'
+        link: '/wiki/'
       },
       {
         text: 'github',
@@ -44,18 +45,23 @@ module.exports = {
       }
     ],
     // 为以下路由添加侧边栏
-    sidebar: {
-      '/base/': [
-        '',
-        'alert',
-        'tab-list'
-      ]
-      ,
-      '/other/': [
-        'new'
-      ]
-    }
+    // sidebar: {
+    //   '/base/': [
+    //     '',
+    //     'alert',
+    //     'tab-list',
+    //     'dropdown'
+    //   ]
+    //   ,
+    //   '/wiki/': [
+    //     'new'
+    //   ]
+    // }
   },
+  head: [
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
+  ],
   plugins: [
     // 回到顶部
     '@vuepress/back-to-top',
@@ -68,7 +74,10 @@ module.exports = {
     // 页面滚动时自动激活侧边栏链接的插件
     '@vuepress/active-header-links',
     // 图片放大
-    '@vuepress/medium-zoom'
+    '@vuepress/medium-zoom',
+    'demo-block',
+    // 自动生成侧边栏
+    'vuepress-plugin-auto-sidebar'
   ],
   markdown: {
     // markdown-it-anchor 的选项
@@ -79,39 +88,40 @@ module.exports = {
     toc: {
       includeLevel: [1, 2]
     },
-    extendMarkdown: md => {
-      // 使用更多的 markdown-it 插件!
-      md.use(require('markdown-it-container'), 'demo', {
+    // extendMarkdown: md => {
+    //   // 使用更多的 markdown-it 插件!
+    //   md.use(require('markdown-it-container'), 'demo', {
 
-        validate: function (params) {
-          return params.trim().match(/^demo\s+(.*)$/);
-        },
+    //     validate: function (params) {
+    //       return params.trim().match(/^demo\s+(.*)$/);
+    //     },
 
-        render: function (tokens, idx) {
-          if (tokens[idx].nesting === 1) {
-            // 1.获取第一行的内容使用markdown渲染html作为组件的描述
-            let demoInfo = tokens[idx].info
-              .trim()
-              .match(/^demo\s+(.*)$/);
-            let description =
-              demoInfo && demoInfo.length > 1 ?
-              demoInfo[1] :
-              '';
-            let descriptionHTML = description ?
-              md.render(description) :
-              '';
-            // 2.获取代码块内的html和js代码
-            let content = tokens[idx + 1].content;
-            // 3.使用自定义开发组件【DemoBlock】来包裹内容并且渲染成案例和代码示例
-            return `<demo-block>
-          <template class="source" slot="source">${stripTemplate(content)}</template>
-          ${descriptionHTML.html}
-          <template class="highlight" slot="highlight">`;
-          } else {
-            return `</template></demo-block>\n`;
-          }
-        }
-      });
-    }
+    //     render: function (tokens, idx) {
+    //       if (tokens[idx].nesting === 1) {
+    //         // 1.获取第一行的内容使用markdown渲染html作为组件的描述
+    //         let demoInfo = tokens[idx].info
+    //           .trim()
+    //           .match(/^demo\s+(.*)$/);
+    //         let description =
+    //           demoInfo && demoInfo.length > 1 ?
+    //           demoInfo[1] :
+    //           '';
+    //         let descriptionHTML = description ?
+    //           md.render(description) :
+    //           '';
+    //         // 2.获取代码块内的html和js代码
+    //         let content = tokens[idx + 1].content;
+    //         // 3.使用自定义开发组件【DemoBlock】来包裹内容并且渲染成案例和代码示例
+    //         addDep(md,content)
+    //         return `<demo-block>
+    //       <template class="source" slot="source">${stripTemplate(content)}</template>
+    //       ${descriptionHTML.html}
+    //       <template class="highlight" slot="highlight">`;
+    //       } else {
+    //         return `</template></demo-block>\n`;
+    //       }
+    //     }
+    //   });
+    // }
   }
 }

@@ -10,6 +10,7 @@
     "docs:build": "vuepress build examples/docs",
     "docs:dev": "vuepress dev examples/docs",
     "lib": "vue-cli-service build --target lib --name smart-ui --dest lib packages/index.js",
+    "style": "gulp build --gulpfile packages/theme-chalk/gulpfile.js",
     "publish": "npm run lib && node scripts/publish.js && npm run deploy:build",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -41,6 +42,10 @@
     "eslint-plugin-vue": "^5.0.0",
     "fs": "^0.0.1-security",
     "gh-pages": "^2.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^4.1.0",
     "lint-staged": "^9.3.0",
     "markdown-it-container": "^2.0.0",
     "node-sass": "^4.12.0",
@@ -52,7 +57,9 @@
     "vue-markdown-loader": "^2.4.1",
     "vue-template-compiler": "^2.6.10",
     "vue-test-utils": "^1.0.0-beta.11",
-    "vuepress": "^1.0.4"
+    "vuepress": "^1.0.4",
+    "vuepress-plugin-auto-sidebar": "^1.4.1",
+    "vuepress-plugin-demo-block": "^0.7.2"
   },
   "postcss": {
     "plugins": {

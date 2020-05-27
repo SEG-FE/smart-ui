@@ -3,9 +3,14 @@
 ::: demo 可传入 width 控制 tab 宽度
 
 ```html
-<TabList
-  label="年级"
-/>
+<template>
+  <TabList
+    label="年级"
+  />
+</template>
+<script>
+export default{}
+</script>
 ```
 
 :::
