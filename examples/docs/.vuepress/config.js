@@ -28,7 +28,7 @@ module.exports = {
       },
       {
         text: '文档中心',
-        link: '/other/new'
+        link: '/wiki/'
       },
       {
         text: 'github',
@@ -53,7 +53,7 @@ module.exports = {
     //     'dropdown'
     //   ]
     //   ,
-    //   '/other/': [
+    //   '/wiki/': [
     //     'new'
     //   ]
     // }

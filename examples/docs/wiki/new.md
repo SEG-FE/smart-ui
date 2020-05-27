@@ -1,4 +1,4 @@
-### 新增组件流程
+# 新增组件流程
 
 [仓库地址](https://github.com/SEG-FE/smart-ui.git)
 
@@ -227,7 +227,7 @@ export default {
 
 :::
 
-#### 在markdown中调试组件：
+#### 在vuepress中调试组件：
 
 文件位置：example/docs/base/xxx.md
 
@@ -276,26 +276,11 @@ sidebar: {
 }
 ```
 
-3. 编写组件文档，demo 调试(去掉转义符`\`)
-
-````html
-\::: demo Alert 组件提供四种主题，由`type`属性指定，默认值为`info`。 
-\```html
-<template>
-  <el-alert title="成功提示的文案" type="success"> </el-alert>
-  <el-alert title="消息提示的文案" type="info"> </el-alert>
-  <el-alert title="警告提示的文案" type="warning"> </el-alert>
-  <el-alert title="错误提示的文案" type="error"> </el-alert>
-</template>
-\``` 
-\:::
-````
-
-![Image text](./images/demo1.png)
+3. [编写组件文档](documentation.md)
 
 ## 发布
 
-目前只有seg-fe账号有发版权限，发布前需要在github平台上提交pull request。
+目前只有seg-fe账号有发版权限，发布前需要seg-fe账号操作merge。
 
 打包文件并发布到 npm
 
